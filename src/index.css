@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background: linear-gradient(180deg, #FFF7FB 0%, #F8F3FF 45%, #E4E4FF 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #222222;
+    font-family: 'Poppins', sans-serif;
+  }
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .glass-pink {
+    background: rgba(255, 240, 247, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(251, 94, 168, 0.15);
+  }
+  .skeleton {
+    background: linear-gradient(90deg, #f0e8ff 25%, #e8def8 50%, #f0e8ff 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-soft::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-soft::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-soft::-webkit-scrollbar-thumb {
+    background: #CBB8FF;
+    border-radius: 10px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .dragging {
+    opacity: 0.5;
+  }
+  .drag-over {
+    border-color: #FB5EA8 !important;
+    background: rgba(251, 94, 168, 0.05);
+  }
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: #F2E8F8;
+  border-radius: 10px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #FB5EA8;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(251, 94, 168, 0.4);
+  transition: transform 0.2s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #FB5EA8;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(251, 94, 168, 0.4);
+}
