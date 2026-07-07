@@ -26,6 +26,15 @@ export interface PriceListData {
   lineHeight: number;
   bold: boolean;
   uppercase: boolean;
+  titleColor: string;
+  contentColor: string;
+  priceColor: string;
+  instagram: string;
+  whatsapp: string;
+  tiktok: string;
+  phone: string;
+  email: string;
+  website: string;
 }
 
 export const DEFAULT_DATA: PriceListData = {
@@ -49,6 +58,15 @@ export const DEFAULT_DATA: PriceListData = {
   lineHeight: 1.5,
   bold: true,
   uppercase: true,
+  titleColor: '#222222',
+  contentColor: '#666666',
+  priceColor: '#FB5EA8',
+  instagram: '',
+  whatsapp: '',
+  tiktok: '',
+  phone: '',
+  email: '',
+  website: '',
 };
 
 export const DESIGN_SIZES: { id: DesignSize; label: string; ratio: string; w: number; h: number }[] = [

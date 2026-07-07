@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Upload, Plus, Trash2, GripVertical, X, Image as ImageIcon, FileText } from 'lucide-react';
+import { Upload, Plus, Trash2, GripVertical, X, Image as ImageIcon, FileText, Share2, Instagram, MessageCircle, Music2, Phone, Mail, Globe } from 'lucide-react';
 import { Input, TextArea, SectionTitle, Card } from './ui';
 import { DESIGN_SIZES, type DesignSize, type PriceListData, type Service } from '../types';
 import { useToast } from '../toast';
@@ -176,6 +176,40 @@ export function Step1Form({ data, update }: { data: PriceListData; update: (p: P
       {/* Notes */}
       <Card className="p-5 mb-4">
         <TextArea label="Catatan / Disclaimer (opsional)" value={data.notes} onChange={v => update({ notes: v })} placeholder="Harga dapat berubah sewaktu-waktu. Hubungi kami untuk informasi lebih lanjut." />
+      </Card>
+
+      {/* Social Media */}
+      <Card className="p-5 mb-4">
+        <div className="flex items-center gap-2 mb-4">
+          <Share2 className="w-5 h-5 text-primary" />
+          <h3 className="font-semibold text-text-primary">Sosial Media (opsional)</h3>
+        </div>
+        <div className="space-y-3">
+          <div className="flex items-center gap-2">
+            <Instagram className="w-5 h-5 text-primary shrink-0" />
+            <input value={data.instagram} onChange={e => update({ instagram: e.target.value })} placeholder="@username" className="flex-1 px-3 py-2 rounded-xl bg-lavender-50 border border-[#F2E8F8] text-sm focus:outline-none focus:border-primary transition-colors" />
+          </div>
+          <div className="flex items-center gap-2">
+            <MessageCircle className="w-5 h-5 text-green-500 shrink-0" />
+            <input value={data.whatsapp} onChange={e => update({ whatsapp: e.target.value })} placeholder="08xx atau 62xx" className="flex-1 px-3 py-2 rounded-xl bg-lavender-50 border border-[#F2E8F8] text-sm focus:outline-none focus:border-primary transition-colors" />
+          </div>
+          <div className="flex items-center gap-2">
+            <Music2 className="w-5 h-5 text-text-primary shrink-0" />
+            <input value={data.tiktok} onChange={e => update({ tiktok: e.target.value })} placeholder="@username" className="flex-1 px-3 py-2 rounded-xl bg-lavender-50 border border-[#F2E8F8] text-sm focus:outline-none focus:border-primary transition-colors" />
+          </div>
+          <div className="flex items-center gap-2">
+            <Phone className="w-5 h-5 text-blue-500 shrink-0" />
+            <input value={data.phone} onChange={e => update({ phone: e.target.value })} placeholder="08xx" className="flex-1 px-3 py-2 rounded-xl bg-lavender-50 border border-[#F2E8F8] text-sm focus:outline-none focus:border-primary transition-colors" />
+          </div>
+          <div className="flex items-center gap-2">
+            <Mail className="w-5 h-5 text-orange-500 shrink-0" />
+            <input value={data.email} onChange={e => update({ email: e.target.value })} placeholder="email@domain.com" className="flex-1 px-3 py-2 rounded-xl bg-lavender-50 border border-[#F2E8F8] text-sm focus:outline-none focus:border-primary transition-colors" />
+          </div>
+          <div className="flex items-center gap-2">
+            <Globe className="w-5 h-5 text-lavender-500 shrink-0" />
+            <input value={data.website} onChange={e => update({ website: e.target.value })} placeholder="www.domain.com" className="flex-1 px-3 py-2 rounded-xl bg-lavender-50 border border-[#F2E8F8] text-sm focus:outline-none focus:border-primary transition-colors" />
+          </div>
+        </div>
       </Card>
 
       {/* Design Size */}

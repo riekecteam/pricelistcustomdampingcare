@@ -24,8 +24,9 @@ export function Step3Fonts({ data, update }: { data: PriceListData; update: (p: 
               lineHeight: data.lineHeight,
               fontWeight: data.bold ? 700 : 400,
               textTransform: data.uppercase ? 'uppercase' : 'none',
+              color: data.titleColor,
             }}
-            className="text-text-primary mb-2"
+            className="mb-2"
           >
             {data.title || 'PRICE LIST'}
           </p>
@@ -35,8 +36,8 @@ export function Step3Fonts({ data, update }: { data: PriceListData; update: (p: 
               letterSpacing: `${data.letterSpacing}px`,
               lineHeight: data.lineHeight,
               fontWeight: data.bold ? 500 : 400,
+              color: data.contentColor,
             }}
-            className="text-text-secondary"
           >
             {data.subtitle || 'Premium Quality'}
           </p>
@@ -76,6 +77,39 @@ export function Step3Fonts({ data, update }: { data: PriceListData; update: (p: 
           >
             <CaseSensitive className="w-4 h-4" /> Kapital
           </button>
+        </div>
+      </Card>
+
+      {/* Color Pickers */}
+      <Card className="p-5 mb-4">
+        <label className="block text-sm font-medium text-text-primary mb-3">Warna Font</label>
+        <div className="grid grid-cols-3 gap-3">
+          <div>
+            <label className="block text-xs text-text-secondary mb-2">Judul</label>
+            <div className="flex items-center gap-2">
+              <input type="color" value={data.titleColor} onChange={e => update({ titleColor: e.target.value })} className="w-10 h-10 rounded-xl border border-[#F2E8F8] cursor-pointer" />
+              <span className="text-xs font-mono text-text-secondary">{data.titleColor}</span>
+            </div>
+          </div>
+          <div>
+            <label className="block text-xs text-text-secondary mb-2">Isi</label>
+            <div className="flex items-center gap-2">
+              <input type="color" value={data.contentColor} onChange={e => update({ contentColor: e.target.value })} className="w-10 h-10 rounded-xl border border-[#F2E8F8] cursor-pointer" />
+              <span className="text-xs font-mono text-text-secondary">{data.contentColor}</span>
+            </div>
+          </div>
+          <div>
+            <label className="block text-xs text-text-secondary mb-2">Harga</label>
+            <div className="flex items-center gap-2">
+              <input type="color" value={data.priceColor} onChange={e => update({ priceColor: e.target.value })} className="w-10 h-10 rounded-xl border border-[#F2E8F8] cursor-pointer" />
+              <span className="text-xs font-mono text-text-secondary">{data.priceColor}</span>
+            </div>
+          </div>
+        </div>
+        <div className="flex gap-2 mt-3">
+          {['#222222', '#FB5EA8', '#CBB8FF', '#4CAF50', '#FFFFFF', '#1a1a1a'].map(c => (
+            <button key={c} onClick={() => update({ titleColor: c, contentColor: c === '#FFFFFF' ? '#666666' : c })} className="w-8 h-8 rounded-full border-2 border-white shadow-soft" style={{ background: c }} />
+          ))}
         </div>
       </Card>
 
